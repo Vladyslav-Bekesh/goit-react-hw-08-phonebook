@@ -28,7 +28,7 @@ const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const Phonebook = lazy(() => import('../pages/Phonebook'));
 
- const App = () => {
+const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
@@ -45,13 +45,19 @@ const Phonebook = lazy(() => import('../pages/Phonebook'));
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/phonebook" component={<RegisterPage />} />
+            <RestrictedRoute
+              redirectTo="/phonebook"
+              component={<RegisterPage />}
+            />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/phonebook" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo="/phonebook"
+              component={<LoginPage />}
+            />
           }
         />
         <Route
