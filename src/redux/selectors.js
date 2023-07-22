@@ -1,5 +1,5 @@
 export const selectContacts = state => {
-  return state.contacts.contacts;
+  return state.contacts.items;
 };
 
 export const selectIsLoading = state => {

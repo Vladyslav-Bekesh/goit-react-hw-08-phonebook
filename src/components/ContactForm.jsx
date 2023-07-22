@@ -48,7 +48,7 @@ function ContactForm() {
     } else {
       const newContact = {
         name: trimmedName,
-        phone: trimmedPhone,
+        number: trimmedPhone,
         id: nanoid(),
       };
 

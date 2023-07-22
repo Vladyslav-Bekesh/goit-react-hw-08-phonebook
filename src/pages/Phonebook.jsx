@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { fetchContacts } from 'redux/operations';
 import { selectIsLoading } from 'redux/selectors';
+import ContactForm from 'components/ContactForm';
+import Contacts from 'components/Contacts';
 
 export default function Tasks() {
   const dispatch = useDispatch();
@@ -17,7 +19,16 @@ export default function Tasks() {
       <Helmet>
         <title>Your tasks</title>
       </Helmet>
-      <div>{isLoading && 'Request in progress...'}</div>
+      <>{isLoading && 'Request in progress...'}</>
+
+      <>
+        <h1>Phonebook</h1>
+        <br />
+        <ContactForm />
+        <br />
+        <Contacts />
+      </>
     </>
   );
 }
+
