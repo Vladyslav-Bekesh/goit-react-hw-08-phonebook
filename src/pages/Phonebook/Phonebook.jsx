@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { fetchContacts } from 'redux/operations';
 import { selectIsLoading } from 'redux/selectors';
-import ContactForm from 'components/ContactForm';
-import Contacts from 'components/Contacts';
+import ContactForm from 'components/Forms/ContactForm';
+import Contacts from 'components/Contacts/Contacts';
+import { Title } from './Phonebook.styled';
 
 export default function Tasks() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function Tasks() {
       <>{isLoading && 'Request in progress...'}</>
 
       <>
-        <h1>Phonebook</h1>
+        <Title>Phonebook</Title>
         <br />
         <ContactForm />
         <br />
@@ -31,4 +32,3 @@ export default function Tasks() {
     </>
   );
 }
-

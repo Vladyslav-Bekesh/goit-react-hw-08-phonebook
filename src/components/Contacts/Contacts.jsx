@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Title from './Title';
-import ContactsList from './ContactsList';
-import Filter from './Filter';
+import Title from '../Title/Title';
+import ContactsList from '../ContactsList/ContactsList';
+import Filter from '../Forms/FilterForm';
 
-import * as selectors from '../redux/selectors';
-import { fetchContacts } from '../redux/operations';
+import * as selectors from '../../redux/selectors';
+import { fetchContacts } from '../../redux/operations';
 
 function Contacts() {
   const contacts = useSelector(selectors.selectContacts);

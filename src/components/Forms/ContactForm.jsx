@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../redux/operations';
-import * as selectors from '../redux/selectors';
+import { addContact } from '../../redux/operations';
+import * as selectors from '../../redux/selectors';
+
+import {
+  FormCss,
+  RegisterBtnCss,
+  FormLabelCss,
+  FormInputCss,
+} from './Forms.styled';
 
 function ContactForm() {
   const [number, setNumber] = useState('');
@@ -55,13 +63,18 @@ function ContactForm() {
       dispatch(addContact(newContact));
     }
   };
-
+const chekButtonActive = () => {
+    if (name === '' || number === '') {
+      return true;
+    }
+    return false;
+  };
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <FormCss onSubmit={handleSubmit}>
+        <FormLabelCss>
           Enter name
-          <input
+          <FormInputCss
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -70,12 +83,11 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-        </label>
-        <br />
+        </FormLabelCss>
 
-        <label>
+        <FormLabelCss>
           Enter number
-          <input
+          <FormInputCss
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -84,11 +96,10 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-        </label>
-        <br />
+        </FormLabelCss>
 
-        <button type="submit">Add to contact</button>
-      </form>
+        <RegisterBtnCss type="submit" disabled={chekButtonActive()}>Add to contact</RegisterBtnCss>
+      </FormCss>
     </>
   );
 }
