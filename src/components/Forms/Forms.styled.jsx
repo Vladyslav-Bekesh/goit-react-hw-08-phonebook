@@ -31,7 +31,7 @@ export const RegisterBtnCss = styled.button`
 
   cursor: pointer;
   outline: none;
-  background-color: #f87719;
+  background: linear-gradient(141.22deg, #ffc226 20%, #f84119 80%);
   color: white;
 
   &:disabled {

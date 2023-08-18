@@ -7,7 +7,7 @@ import ContactForm from 'components/Forms/ContactForm';
 import Contacts from 'components/Contacts/Contacts';
 import { Title } from './Phonebook.styled';
 
-export default function Tasks() {
+export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
 
@@ -18,7 +18,7 @@ export default function Tasks() {
   return (
     <>
       <Helmet>
-        <title>Your tasks</title>
+        <title>Your contacts</title>
       </Helmet>
       <>{isLoading && 'Request in progress...'}</>
 

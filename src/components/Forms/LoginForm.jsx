@@ -2,12 +2,9 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/AuthOperations';
 import { useState } from 'react';
 
-import {
-  FormCss,
-  RegisterBtnCss,
-  FormLabelCss,
-  FormInputCss,
-} from './Forms.styled';
+import { TextButton } from '../TextButton/TextButton';
+
+import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -56,9 +53,7 @@ export const LoginForm = () => {
         />
       </FormLabelCss>
 
-      <RegisterBtnCss type="submit" disabled={chekButtonActive()}>
-        Log In
-      </RegisterBtnCss>
+      <TextButton type="submit" disabled={chekButtonActive()} text={'Log In'} />
     </FormCss>
   );
 };

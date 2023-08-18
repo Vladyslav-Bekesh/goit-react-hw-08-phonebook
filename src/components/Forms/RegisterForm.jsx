@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/AuthOperations';
-import {
-  FormCss,
-  RegisterBtnCss,
-  FormLabelCss,
-  FormInputCss,
-} from './Forms.styled';
+import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled';
+import { TextButton } from '../TextButton/TextButton';
 import { useState } from 'react';
 
 export const RegisterForm = () => {
@@ -50,7 +46,7 @@ export const RegisterForm = () => {
           onChange={e => setName(e.target.value)}
         />
       </FormLabelCss>
-      
+
       <FormLabelCss>
         Email
         <FormInputCss
@@ -70,9 +66,11 @@ export const RegisterForm = () => {
           onChange={e => setPassword(e.target.value)}
         />
       </FormLabelCss>
-      <RegisterBtnCss type="submit" disabled={chekButtonActive()}>
-        Register
-      </RegisterBtnCss>
+      <TextButton
+        type="submit"
+        disabled={chekButtonActive()}
+        text={'Register'}
+      />
     </FormCss>
   );
 };

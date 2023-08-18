@@ -18,7 +18,7 @@ export const WelcomeCss = styled.p`
 `;
 
 export const ButtonCss = styled.button`
-  background: linear-gradient(45deg, #ff9900 30%, #f87719);
+  background: linear-gradient(141.22deg, #ffc226 20%, #f84119 80%);
 
   padding: 4px 6px;
   border-radius: 4px;
@@ -26,7 +26,7 @@ export const ButtonCss = styled.button`
 
   border: none;
 
-  @media ${queries.mobile} {
+  ${queries.mobile} {
     margin-top: 0;
   }
 `;

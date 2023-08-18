@@ -7,10 +7,11 @@ import * as selectors from '../../redux/selectors';
 
 import {
   FormCss,
-  RegisterBtnCss,
   FormLabelCss,
   FormInputCss,
 } from './Forms.styled';
+
+import { TextButton } from '../TextButton/TextButton';
 
 function ContactForm() {
   const [number, setNumber] = useState('');
@@ -63,7 +64,8 @@ function ContactForm() {
       dispatch(addContact(newContact));
     }
   };
-const chekButtonActive = () => {
+
+  const chekButtonActive = () => {
     if (name === '' || number === '') {
       return true;
     }
@@ -98,7 +100,11 @@ const chekButtonActive = () => {
           />
         </FormLabelCss>
 
-        <RegisterBtnCss type="submit" disabled={chekButtonActive()}>Add to contact</RegisterBtnCss>
+        <TextButton
+          type="submit"
+          disabled={chekButtonActive()}
+          text={'Add to contact'}
+        />
       </FormCss>
     </>
   );
