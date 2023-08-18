@@ -15,42 +15,6 @@ export const FormCss = styled.form`
   padding: 12px;
 `;
 
-export const RegisterBtnCss = styled.button`
-  display: inline-block;
-  padding: 10px 8px;
-  border: 0;
-  border-radius: 15px;
-  min-width: 120px;
-
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  cursor: pointer;
-  outline: none;
-  background: linear-gradient(141.22deg, #ffc226 20%, #f84119 80%);
-  color: white;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: default;
-
-    background-color: #444444;
-  }
-
-  &:enabled {
-    opacity: 1;
-  }
-
-  &:not(:disabled):hover {
-    background-color: orangered;
-    transform: scale(1.1);
-  }
-`;
-
 export const FormLabelCss = styled.label`
   display: flex;
   flex-direction: column;
