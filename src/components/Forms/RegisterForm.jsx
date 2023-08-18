@@ -50,6 +50,7 @@ export const RegisterForm = () => {
           onChange={e => setName(e.target.value)}
         />
       </FormLabelCss>
+      
       <FormLabelCss>
         Email
         <FormInputCss
@@ -59,6 +60,7 @@ export const RegisterForm = () => {
           onChange={e => setEmail(e.target.value)}
         />
       </FormLabelCss>
+
       <FormLabelCss>
         Password
         <FormInputCss

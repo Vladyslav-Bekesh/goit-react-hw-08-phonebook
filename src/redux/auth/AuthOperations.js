@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import { registerCheck } from '../../utils/registerCheck';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 // Utility to add JWT
@@ -19,10 +19,12 @@ export const register = createAsyncThunk(
     try {
       console.log(credentials);
       const res = await axios.post('/users/signup', credentials);
+      console.log(res);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      console.log('user created');
+      console.log(error);
+      registerCheck(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
