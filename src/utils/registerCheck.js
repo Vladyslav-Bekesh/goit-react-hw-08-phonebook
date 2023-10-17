@@ -1,8 +1,6 @@
 import { toast } from 'react-toastify';
 
 const registerCheck = (error) => {
-  console.log('error.message');
-
   if (error.response.data.errors) {
     const { password, email } = error.response.data.errors;
 
