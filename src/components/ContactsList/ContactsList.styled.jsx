@@ -1,22 +1,34 @@
 import styled from '@emotion/styled';
+import queries from '../../utils/mediaQueries';
 
-export const ContactList = styled.div`
-  width: 480px;
+export const ContactList = styled.ul`
+  width: 280px;
   border: tomato 1px solid;
-  padding: 32px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
 
   &:not(:last-child) {
     margin-bottom: 13px;
   }
+  ${queries.mobile} {
+    padding: 18px;
+    width: 320px;
+  }
+  ${queries.tablet} {
+    padding: 25px;
+    width: 370px;
+  }
 `;
 
-export const ContactItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const ContactItem = styled.li`
+  display: block;
+  ${queries.mobile} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const DeleteBtn = styled.button`
@@ -34,6 +46,14 @@ export const DeleteBtn = styled.button`
     background: linear-gradient(141.22deg, #cb4e13 9.4%, #dcb311 91.91%);
     color: white;
   }
+  margin: 0 auto;
+  margin-top: 10px;
+`;
+
+export const TextWrap = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ContactName = styled.span`

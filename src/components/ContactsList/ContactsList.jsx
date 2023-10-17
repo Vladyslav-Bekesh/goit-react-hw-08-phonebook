@@ -8,6 +8,7 @@ import {
   DeleteBtn,
   ContactName,
   ContactNumber,
+  TextWrap,
 } from './ContactsList.styled';
 
 function ContactsList({ contacts }) {
@@ -21,8 +22,11 @@ function ContactsList({ contacts }) {
     return (
       <ContactList>
         <ContactItem key={id}>
-          <ContactName>{name}:</ContactName>
-          <ContactNumber>{number}</ContactNumber>
+          <TextWrap>
+            <ContactName>{name}:</ContactName>
+            <ContactNumber>{number}</ContactNumber>
+          </TextWrap>
+
           <DeleteBtn
             type="DeleteBtn"
             onClick={() => {
