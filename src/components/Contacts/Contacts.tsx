@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { TContact } from '../../types/contacts';
 
 import Title from '../Title/Title';
 import ContactsList from '../ContactsList/ContactsList';
@@ -17,11 +19,11 @@ function Contacts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchContacts() as any);
   }, [dispatch]);
 
   const makeFilteredContacts = () => {
-    return contacts.filter(contact =>
+    return contacts.filter((contact: TContact) =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };

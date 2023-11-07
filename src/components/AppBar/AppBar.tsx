@@ -4,7 +4,7 @@ import { AuthNav } from '../Navigation/AuthNav/AuthNav';
 import { useAuth } from '../../hooks';
 import { HeaderCss } from './AppBar.styled';
 
-export const AppBar = () => {
+export const AppBar: React.FC = () => {
   const { isLoggedIn } = useAuth();
 
   return (
