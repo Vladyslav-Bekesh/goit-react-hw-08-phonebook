@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/AuthOperations';
+import { logIn } from '../../redux/auth/AuthOperations';
 import { useState } from 'react';
 
 import { TextButton } from '../TextButton/TextButton';

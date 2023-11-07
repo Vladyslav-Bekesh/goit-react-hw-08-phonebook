@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/AuthOperations';
-import { useAuth } from 'hooks';
+import { logOut } from '../../redux/auth/AuthOperations';
+import { useAuth } from '../../hooks';
 
 import { TextButton } from '../TextButton/TextButton';
 
