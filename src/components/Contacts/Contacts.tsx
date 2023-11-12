@@ -7,14 +7,19 @@ import Title from '../Title/Title';
 import ContactsList from '../ContactsList/ContactsList';
 import Filter from '../Forms/FilterForm';
 
-import * as selectors from '../../redux/selectors';
+import {
+  selectContacts,
+  selectFilter,
+  selectError,
+  selectIsLoading,
+} from '../../redux/selectors';
 import { fetchContacts } from '../../redux/operations';
 
 function Contacts() {
-  const contacts = useSelector(selectors.selectContacts);
-  const filter = useSelector(selectors.selectFilter);
-  const error = useSelector(selectors.selectError);
-  const isLoading = useSelector(selectors.selectIsLoading);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
 
   const dispatch = useDispatch();
 
