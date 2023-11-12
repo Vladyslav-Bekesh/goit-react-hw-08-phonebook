@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFilterChange } from '../../redux/slicers/filterSlicer';
-
 import * as selectors from '../../redux/selectors';
 
 import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled';
+
+type TTarget = { target: { value: string } };
+type THandleFilter = (target: TTarget) => void;
+
 function Filter() {
   const contacts = useSelector(selectors.selectContacts);
   const filter = useSelector(selectors.selectFilter);
 
   const dispatch = useDispatch();
 
-  const handleFilter = event => {
-    dispatch(handleFilterChange(event.target.value));
+  const handleFilter: THandleFilter = ({ target: { value } }) => {
+    dispatch(handleFilterChange(value));
   };
 
   return (

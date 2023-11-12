@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { nanoid } from 'nanoid';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/operations';
 import * as selectors from '../../redux/selectors';
 
-import {
-  FormCss,
-  FormLabelCss,
-  FormInputCss,
-} from './Forms.styled';
-
+import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled';
 import { TextButton } from '../TextButton/TextButton';
+
+type TTarget = { target: { name: string; value: string } };
+type THandleChange = (target: TTarget) => void;
+type TNewContact = (name: string, phone: string) => void;
 
 function ContactForm() {
   const [number, setNumber] = useState('');
@@ -20,7 +19,7 @@ function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectors.selectContacts);
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange: THandleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
         setName(value);
@@ -35,7 +34,7 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     newContact(name, number);
@@ -47,7 +46,7 @@ function ContactForm() {
     setName('');
   };
 
-  const newContact = (name, phone) => {
+  const newContact: TNewContact = (name, phone) => {
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
     const isDuplicate = contacts.some(contact => contact.name === trimmedName);
@@ -61,11 +60,11 @@ function ContactForm() {
         id: nanoid(),
       };
 
-      dispatch(addContact(newContact));
+      dispatch(addContact(newContact) as any);
     }
   };
 
-  const chekButtonActive = () => {
+  const chekButtonActive = (): boolean => {
     if (name === '' || number === '') {
       return true;
     }
@@ -102,6 +101,7 @@ function ContactForm() {
 
         <TextButton
           type="submit"
+          onClick={handleSubmit}
           disabled={chekButtonActive()}
           text={'Add to contact'}
         />
