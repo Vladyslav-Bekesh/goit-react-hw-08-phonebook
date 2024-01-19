@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/AuthOperations';
-import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled';
-import { TextButton } from '../TextButton/TextButton';
-import { useState } from 'react';
+import { register } from '../../redux/auth/AuthOperations.js';
+import { FormCss, FormLabelCss, FormInputCss } from './Forms.styled.jsx';
+import { TextButton } from '../TextButton/TextButton.js';
+import { FormEvent, useState } from 'react';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -10,15 +10,17 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
     dispatch(
       register({
-        name: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
       })
     );
+
     formReset();
   };
 

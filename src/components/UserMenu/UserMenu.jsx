@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../redux/auth/AuthOperations';
+import { logOut } from '../../redux/auth/AuthOperations.ts';
 import { useAuth } from '../../hooks';
 
 import { TextButton } from '../TextButton/TextButton';
